@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabalho</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.menu{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 05%;
+    height: 120px; 
+    margin-top: 30px;
+
+}
+
+.menu img{
+    height: 150px;
+    width: auto;
+    margin-left: 20px;
+}
+
+
+
+.menu nav ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu nav ul li{
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.menu nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+
+@media (max-width: 768px){
+
+    .menu{
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .menu nav ul{
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+    h1{
+        display:flex;
+        justify-content: center;
+        margin-top:5%;
+	padding:10px;
+    }
+    .desejo1 img{
+       width:30%;
+       margin-left:200px;
+           }
+
+    .desejo2 img{
+       width:30%;
+        margin-left:200px;
+    }
+    .desejos{
+       display:flex 
+       align-items: center;
+       justify-content: center;
+       gap:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="menu">
+    <img src="./imagens/logo.png" alt="logo">
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="portifolio.html">Portfólio</a></li>
+            <li><a href="trabalho.html">Trabalho</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+</div>
+   
+
+<h1>Desejos caso eu fique rico</h1>
+
+<div class="desejos">
+
+<div class="desejo1">
+<h2>uma casa</h2>  
+<img src="https://i.pinimg.com/originals/3e/2e/a0/3e2ea0689178a4a37408fed2907b9bdb.jpg" alt="casa com veiculos">  
+</div>
+<div class="desejo2">  
+<h3>um carro</h3>
+<img src="https://tse4.mm.bing.net/th/id/OIP.udQG4GgRr9SnkeXd-HCCyQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"alt="veiculo">  	
+</div>
+
+</div>
+
+
+
+</body>
+</html>
