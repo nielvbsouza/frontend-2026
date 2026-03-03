@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>pagina</title>
+</head>
+<body>
+   <!--pertence ao menu-->
+    <div class="menu">
+    <a href="#home"><img src="./logo.png" alt="logo" ></a>
+   
+    <nav>
+        <ul>
+
+        <li>     <a href="#sobre">sobre</a>      </li>
+
+        <li>     <a href="#conteudo">conteudo</a>  </li>
+            
+        <li>     <a href="#contato">contato</a>  </li>
+           
+        <li> <a href="#formulario">formulario</a> </li>
+
+        </ul>
+    </nav>
+   </div>
+<!--conteudo da pagina home-->
+    <section id="home">
+        <h1> BEM  VINDO </h1> 
+        
+<h2>Seja bem-vindo(a) à minha página acadêmica.</h2>
+<h3>Este site foi desenvolvido como 
+    parte das atividades do curso de 
+    Engenharia de Software, 
+    com o objetivo de aplicar na prática os conhecimentos
+    adquiridos em HTML, CSS e estruturação de páginas web.
+
+Aqui você encontrará informações sobre minha formação, 
+área de estudo e formas de contato. Este projeto representa 
+meu desenvolvimento técnico e meu compromisso com o aprendizado 
+contínuo na área de tecnologia.</h3>
+    </section>
+<!--conteudo da pagina sobre-->
+    <section id="sobre">             
+        <a ><img src="daniel.jfif" alt="daniel" width="180px"></a>
+        <h3>aluno: DANIEL DE SOUZA SANTOS</h3>
+        <h3>curso: Engenharia de Software</h3>
+        <h3>idade: 24</h3>
+          
+    </section>
+
+<!--conteudo-->
+    <section id="conteudo">
+        <h1>Portas de um criquito eletrico e suas funções</h1>
+        <a ><img src="../teste/portas.jpg" alt="portas logicas"></a>
+    </section>
+
+
+<!--conteudo da pagina formulario-->
+    <section id="formulario">
+        <h1>Aqui esta a sessão de formulario</h1>
+        
+        
+        <form>
+            <div class="for">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" placeholder="Digite seu nome" required>
+            </div>
+
+            <div class="for">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Digite seu email" required>
+            </div>
+            
+        <div class="for">
+      
+                <p>qual a porta que utilizamos para inverter a entrada de 1 para 0</p>
+         
+          
+                     
+                    
+                
+            <table>
+                    <tr>
+                        <td><input type="radio" name="resp" id="nand"> </td>
+                        <td><label for="nand">nand</label> </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><input type="radio" name="resp" id="and"> </td>
+                        <td><label for="and">and</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="resp" id="or"> </td>
+                        <td><label for="or">or</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="resp" id="not"> </td>
+                        <td><label for="not">not</label></td>
+                    </tr>
+                    
+            </table>
+                
+             
+            </div>
+
+            <div class="for">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" rows="4" placeholder="Com base nas imagens referente ao conteudo qual e a porta mais utilizada:"></textarea>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+    </section>
+    <!--conteudo da pagina contato-->
+    
+</body>
+</html>
