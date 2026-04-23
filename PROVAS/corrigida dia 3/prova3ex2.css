@@ -1,0 +1,50 @@
+       /* Fundo geral */
+        body {
+            background: #eef5f9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: #c7e0f4;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #0a3d62;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            color: #1e90ff;
+        }
+
+        /* Classe das seções */
+        .secao {
+            background-color: #ffffff;
+            margin: 25px;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        /* Títulos */
+        .secao h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0a3d62;
+            text-align: center;
+        }
+
+        /* Parágrafos */
+        .secao p {
+            font-size: 17px;
+            color: #333;
+            text-align: justify;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
