@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fruit Ninja React</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    background:#111;
+}
+
+canvas{
+    display:block;
+    cursor:crosshair;
+}
+</style>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const { useEffect, useRef, useState } = React;
+
+function Game() {
+
+  const canvasRef = useRef(null);
+  const [score, setScore] = useState(0);
+
+  useEffect(() => {
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let fruits = [];
+    let slices = [];
+
+    function spawnFruit() {
+      fruits.push({
+        x: Math.random() * canvas.width,
+        y: canvas.height + 20,
+        r: 20 + Math.random() * 20,
+        vx: (Math.random() - 0.5) * 4,
+        vy: -(5 + Math.random() * 5),
+        color: `hsl(${Math.random()*360},70%,55%)`
+      });
+    }
+
+    let lastSpawn = 0;
+
+    function loop() {
+
+      ctx.fillStyle = "rgba(0,0,0,0.25)";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+
+      if(Date.now() - lastSpawn > 800){
+        spawnFruit();
+        lastSpawn = Date.now();
+      }
+
+      fruits.forEach((f,i)=>{
+
+        f.x += f.vx;
+        f.y += f.vy;
+        f.vy += 0.15;
+
+        ctx.beginPath();
+        ctx.fillStyle = f.color;
+        ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+        ctx.fill();
+
+        if(f.y > canvas.height + 100){
+          fruits.splice(i,1);
+        }
+
+      });
+
+      slices.forEach((s,i)=>{
+
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 3;
+
+        ctx.beginPath();
+        ctx.moveTo(s.x1,s.y1);
+        ctx.lineTo(s.x2,s.y2);
+        ctx.stroke();
+
+        s.life--;
+
+        if(s.life <= 0){
+          slices.splice(i,1);
+        }
+
+      });
+
+      requestAnimationFrame(loop);
+    }
+
+    loop();
+
+    let drawing = false;
+
+    canvas.addEventListener("mousedown", ()=> drawing = true);
+    canvas.addEventListener("mouseup", ()=> drawing = false);
+
+    canvas.addEventListener("mousemove", (e)=>{
+
+      if(!drawing) return;
+
+      const p = {
+        x:e.clientX,
+        y:e.clientY
+      };
+
+      slices.push({
+        x1:p.x,
+        y1:p.y,
+        x2:p.x+1,
+        y2:p.y+1,
+        life:10
+      });
+
+      fruits.forEach((f,i)=>{
+
+        const dx = f.x - p.x;
+        const dy = f.y - p.y;
+
+        const dist = Math.sqrt(dx*dx + dy*dy);
+
+        if(dist < f.r){
+
+          fruits.splice(i,1);
+          setScore(s => s + 1);
+
+        }
+
+      });
+
+    });
+
+  }, []);
+
+  return (
+    <>
+      <div style={{
+        position:"absolute",
+        color:"white",
+        padding:"15px",
+        fontSize:"28px",
+        fontWeight:"bold"
+      }}>
+        Score: {score}
+      </div>
+
+      <canvas ref={canvasRef}></canvas>
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
+
+root.render(<Game />);
+
+</script>
+
+</body>
+</html>
